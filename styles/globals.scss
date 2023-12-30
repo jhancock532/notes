@@ -1,0 +1,175 @@
+@forward 'normalize.scss';
+
+:root {
+  // Base colors
+  // https://coolors.co/palette/fffae8-d04200-363635-465e4d-558564-1c221d
+  // https://abc.useallfive.com/?colors[]=F7FFF8,1A6201,8BEBA8,65C783,1C221D,121613
+  --color--white: #f7fff8; //#edffef;
+  --color--dark-green: #1a6201;
+  --color--underline-green: #65c783;
+  --color--highlight-green: #8beba8;
+  --color--disabled-green: #c4f0c4;
+  --color--brown: #a33400;
+  --color--dark-gray: #363635;
+  --color--green: #558564;
+  --color--midnight: #1c221d;
+  --color--black: #121613;
+
+  // Theme colors
+  --color--primary: var(--color--dark-green);
+  --color--text: var(--color--midnight);
+  --color--link: var(--color--primary);
+  --color--underline: var(--color--underline-green);
+  --color--hover: var(--color--brown);
+  --color--background: var(--color--white);
+
+  accent-color: var(--color--primary);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.4;
+  color: var(--color--text);
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  @include font-size(s);
+  overflow-x: hidden;
+  background-color: var(--color--white);
+  font-variant-ligatures: none;
+
+  &.no-scroll {
+    overflow-y: hidden;
+  }
+}
+
+// Prevent empty space below images appearing
+img,
+svg {
+  vertical-align: top;
+}
+
+// Responsive images
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: var(--color--link);
+  text-decoration: none;
+  transition: color $transition;
+
+  &:hover {
+    color: var(--color--hover);
+    cursor: pointer;
+  }
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  list-style-type: square;
+}
+
+li > p {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  @include heading-text();
+}
+
+html,
+.body-text {
+  @include body-text();
+}
+
+// Default sizes
+h1 {
+  @include font-size(xl);
+  font-weight: $weight--bold;
+  margin: 0 0 math.div($gutter, 2);
+  color: var(--color--text);
+}
+
+h2 {
+  @include font-size(l);
+  font-weight: $weight--heavy;
+  margin: $grid * 2 0 $grid 0;
+  color: var(--color--text);
+
+  @include media-query(large) {
+    margin: $grid * 3 0 $grid 0;
+  }
+}
+
+h3,
+h4,
+.heading--3,
+.heading--4 {
+  @include font-size(m);
+  font-weight: $weight--bold;
+  margin: ($gutter * 3) 0 math.div($gutter, 2);
+  color: var(--color--dark-indigo);
+}
+
+h5,
+h6,
+.heading--5,
+.heading--6 {
+  @include font-size(m);
+}
+
+small {
+  @include font-size(xxs);
+}
+
+p {
+  margin: 0 0 ($gutter * 1.5);
+  color: var(--color--text);
+  max-width: 60ch;
+}
+
+b,
+strong {
+  font-weight: $weight--bold;
+}
+
+.strong-black {
+  font-weight: $weight--heavy;
+}
+
+i,
+blockquote {
+  font-style: italic;
+}

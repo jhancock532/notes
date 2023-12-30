@@ -7,3 +7,12 @@ If you'd like to use the same base template, run the following command:
 ```bash
 npx create-next-app --example with-mdx-remote with-mdx-remote-app
 ```
+
+## Additions
+
+- SCSS
+- Prettier
+
+## Known issues
+
+Next remote watch logs errors in the terminal relating to hotreload while running.
