@@ -56,6 +56,10 @@ body {
   }
 }
 
+hr {
+  margin: $grid * 2 0;
+}
+
 // Prevent empty space below images appearing
 img,
 svg {

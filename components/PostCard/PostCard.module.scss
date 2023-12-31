@@ -1,0 +1,41 @@
+.container {
+  border-bottom: 1px solid var(--color--highlight-green);
+  padding-bottom: $grid;
+  margin-bottom: $grid;
+
+  @include media-query(medium) {
+    padding-bottom: $grid * 2;
+    margin-bottom: $grid * 2;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  @include media-query(medium) {
+    flex-direction: row;
+    gap: $grid;
+  }
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  margin-bottom: $grid / 2;
+}
+
+.title {
+  @include highlight-link();
+  @include font-size(m);
+  font-weight: 500;
+  color: black;
+  margin-bottom: 0;
+}
+
+.metadata {
+  @include font-size(s);
+  margin-bottom: 0;
+}
+
+.description {
+  @include font-size(s);
+  margin: 0;
+}

@@ -1,0 +1,9 @@
+.wrapper {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: $grid;
+
+  @include media-query(medium) {
+    padding: $grid * 2;
+  }
+}

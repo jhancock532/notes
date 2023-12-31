@@ -2,12 +2,11 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
 import CustomLink from '../../components/CustomLink';
-import Layout from '../../components/Layout';
+import Layout from '../../components/Layout/Layout';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 
 // Custom components/renderers to pass to MDX.
@@ -16,32 +15,27 @@ import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 // here.
 const components = {
   a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  TestComponent: dynamic(() => import('../../components/TestComponent')),
   Head,
 };
 
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout>
-      <header>
-        <nav>
-          <Link href="/" legacyBehavior>
-            <a>👈 Go back home</a>
-          </Link>
-        </nav>
-      </header>
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
+        <p className="published">{frontMatter.published}</p>
         {frontMatter.description && (
-          <p className="description">{frontMatter.description}</p>
+          <p className="description">
+            <em>{frontMatter.description}</em>
+          </p>
         )}
       </div>
       <main>
         <MDXRemote {...source} components={components} />
       </main>
+      <footer>
+        <Link href="/">⛷️ Back to the homepage</Link>
+      </footer>
     </Layout>
   );
 }

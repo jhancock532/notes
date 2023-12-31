@@ -121,26 +121,12 @@
   text-decoration-skip-ink: none;
   text-decoration-color: var(--color--underline);
 
-  background-image: linear-gradient(
-    180deg,
-    var(--color--highlight-green) 0%,
-    var(--color--highlight-green) 50%,
-    transparent 50%,
-    transparent 100%
-  );
-  background-size: 100% 200%;
-  background-repeat: no-repeat;
   background-position: 0 -100%;
 
-  transition:
-    background-position 0.2s,
-    text-decoration-color $transition;
+  transition: color $transition;
 
   &:hover {
-    color: var(--color--black);
-    text-decoration-color: var(--color--black);
-    background-position: 0 0;
-    transition: background-position $transition;
+    color: var(--color--underline-green);
   }
 }
 
