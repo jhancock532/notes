@@ -12,14 +12,14 @@
 .heading {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: $grid / 2;
+
   @include media-query(medium) {
     flex-direction: row;
     gap: $grid;
   }
-  flex-wrap: wrap;
-  align-items: baseline;
-
-  margin-bottom: $grid / 2;
 }
 
 .title {
