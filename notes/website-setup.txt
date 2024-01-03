@@ -1,0 +1,8 @@
+---
+title: Website setup
+description:
+published: 2024/01/01
+duration: 1 min
+---
+
+This site has been made using a lot of different web technologies - including one that specifically recommends I don't use it for making a personal blog. I'm sorry [next-mds-remote](https://github.com/hashicorp/next-mdx-remote?tab=readme-ov-file#how-can-i-build-a-blog-with-this), I really like using markdown files for writing & you made a lovely example to work from (I've also been strongly influenced by Josh's Joy of React course here).

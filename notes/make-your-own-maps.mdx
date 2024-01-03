@@ -1,0 +1,74 @@
+---
+title: Make your own map tiles
+description: How to create a custom map design and host it for free.
+published: 2024/01/03
+duration: 20 min
+---
+
+## Aims
+
+Create a set of map tiles with custom colors, borders, landmarks, etc, and host it on GitHub for use in personal projects.
+
+- Design a free map on Mapbox
+- Create a copy of this map using QGIS & QTiles
+- Host the copy of the map on GitHub
+
+Bonus: demo your new map tiles in action using Leaflet.js.
+
+### Limitations
+
+- This process works best for maps that have limited scope and zoom levels (e.g. a single country with high zoom detail, or the entire world with low zoom detail). This is because the more map tiles you export, the quicker you'll run out of free Mapbox API credits & increasing your zoom levels exponentially increases your API usage.
+- If you choose to host the map on GitHub, anyone else will be able to use it as it is available publicly. Consider using a different hosting solution if you'd like the map to be private / only accessible with authentication.
+- The map will not update with map revision data unless you re-export it from Mapbox.
+
+## Requirements
+
+You'll need a Mapbox account that hasn't reached its free tier API limits, a GitHub account, and QGIS installed.
+
+<details>
+<summary>How to install QGIS</summary>
+
+1. Navigate to the [official QGIS homepage](https://qgis.org/en/site/).
+1. Click the Download Now button
+1. Select the appropriate download for your device (Windows, MacOS, Linux, etc)
+1. Download and open the file, and follow any additional installation prompts
+
+</details>
+
+## Instructions
+
+### Design a map on Mapbox
+
+If you don't have a Mapbox account, [sign up for one](https://account.mapbox.com/auth/signup/).
+
+Next, navigate to [Mapbox studio](https://studio.mapbox.com/), and create a new map style.
+
+If you're new to Mapbox, I'd recommend creating a new map style based on an image - this will set a lot of the color options for you, saving you some effort setting up.
+
+![Creating a new map style based on a photo upload tool. There are five minor UI elements the user can drag around to change the color of their final map.](/images/create-your-own-map/mapbox-style-with-image.webp)
+
+Click customize to continue and edit the map style further.
+
+To change the colors of elements on the map, click on that element. You may then have to navigate to the specific item within the layer you'd like to change the color of (e.g. changing the base color of landuse won't change all the land colors - scroll through the options to find the specific class of land use color you'd like to change).
+
+![The land use colors are determined with a lot of different options, such as "park", "wood", "glacier", etc. The map is displayed to the right showcasing the current settings.](/images/create-your-own-map/adjust-land-use-colors.webp)
+
+Typography for the map can be updated in a similar way, by clicking on the map titles. Make sure to zoom in and out so you update map titles that only render at certain zoom levels.
+
+![A popup beneath a map title shows color options and also font choices.](/images/create-your-own-map/adjust-typography.webp)
+
+Consider following [further Mapbox tutorials](https://docs.mapbox.com/help/how-to-videos/) to familiarize yourself with the user interface and have greater control over how you customize the map.
+
+Once you are happy with the map design, you can now publish it to share online. Click the publish button in the top right and confirm you are happy with the changes.
+
+To integrate with QGIS, you'll need an API URL for the map tiles. To get this, click "Share" in the top right, then scroll down to developer resources. Select "Third party", then in the dropdown directly beneath, select "Fulcrum" and copy the integration URL provided by Mapbox.
+
+![A large sharing popup window includes a smiling, waving cartoon figure, a demo of the map on the right and export options to the left.](/images/create-your-own-map/mapbox-export.webp)
+
+### Export a copy of this map using QGIS
+
+Todo
+
+### Host your map on GitHub
+
+Todo

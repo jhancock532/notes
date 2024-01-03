@@ -1,0 +1,8 @@
+
+Command to convert any size of png file to a webp file with a max size of 100kB:
+
+```bash
+cwebp -size 100000 input.png -o output.webp
+```
+
+Would be nice to set a max size limit in Next.js when loading images automatically...

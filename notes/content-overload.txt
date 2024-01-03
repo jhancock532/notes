@@ -1,0 +1,10 @@
+---
+title: Content overload
+description:
+published: 2024/01/01
+duration:
+---
+
+Having too much high quality information and ideas within easy reach and dynamically linking to other bits. A book prevents you from taking the jump into something else entirely because you have to get your phone out and google the link yourself, so you read on without too much further distraction. A blog with a hundred links is a hundred little distractions, each linking to a hundred further distractions, letting you read on forever...
+
+We often don't need massive scale to express interesting ideas (see Borges), so cut where necessary, and skim only the cream off the top of the content.
