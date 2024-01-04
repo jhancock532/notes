@@ -6,6 +6,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
 import CustomLink from '../../components/CustomLink';
+import CustomImage from '../../components/CustomImage';
 import Layout from '../../components/Layout/Layout';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 
@@ -15,6 +16,7 @@ import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 // here.
 const components = {
   a: CustomLink,
+  img: CustomImage,
   Head,
 };
 

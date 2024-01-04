@@ -9,7 +9,6 @@
   --color--underline-green: #65c783;
   --color--highlight-green: #8beba8;
   --color--disabled-green: #c4f0c4;
-  --color--brown: #a33400;
   --color--dark-gray: #363635;
   --color--green: #558564;
   --color--midnight: #1c221d;
@@ -20,7 +19,7 @@
   --color--text: var(--color--midnight);
   --color--link: var(--color--primary);
   --color--underline: var(--color--underline-green);
-  --color--hover: var(--color--brown);
+  --color--hover: var(--color--black);
   --color--background: var(--color--white);
 
   accent-color: var(--color--primary);
@@ -81,7 +80,7 @@ textarea {
 
 a {
   color: var(--color--link);
-  text-decoration: none;
+  text-decoration: underline;
   transition: color $transition;
 
   &:hover {
