@@ -1,1 +1,4 @@
 The cathedral is what the developer builds, and the catacombs are all the npm packages the work is structured on.
+
+---
+

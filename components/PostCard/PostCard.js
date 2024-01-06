@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 import styles from './PostCard.module.scss';
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, type }) {
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
         <Link
-          as={`/notes/${post.filePath.replace(/\.mdx?$/, '')}`}
-          href={`/notes/[slug]`}
+          as={`/${type}/${post.filePath.replace(/\.mdx?$/, '')}`}
+          href={`/${type}/[slug]`}
           className={styles.title}
         >
           {post.data.title}

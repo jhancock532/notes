@@ -5,10 +5,9 @@ import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
-import CustomLink from '../../components/CustomLink';
-import CustomImage from '../../components/CustomImage';
-import Layout from '../../components/Layout/Layout';
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import CustomLink from '/components/CustomLink';
+import CustomImage from '/components/CustomImage';
+import Layout from '/components/Layout';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -36,15 +35,17 @@ export default function PostPage({ source, frontMatter }) {
         <MDXRemote {...source} components={components} />
       </main>
       <footer>
-        <Link href="/">⛷️ Back to the homepage</Link>
+        <Link href="/thoughts">⛷️ Back to thoughts</Link>
       </footer>
     </Layout>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
+  const THOUGHTS_PATH = path.join(process.cwd(), 'writing/thoughts');
+
+  const thoughtsFilePath = path.join(THOUGHTS_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(thoughtsFilePath);
 
   const { content, data } = matter(source);
 
@@ -66,7 +67,13 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
+  const THOUGHTS_PATH = path.join(process.cwd(), 'writing/thoughts');
+
+  const thoughtsFilePaths = fs
+    .readdirSync(THOUGHTS_PATH)
+    .filter((path) => /\.mdx?$/.test(path));
+
+  const paths = thoughtsFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

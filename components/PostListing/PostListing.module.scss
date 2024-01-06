@@ -1,0 +1,7 @@
+.container {
+  margin-top: $grid * 2;
+
+  @include media-query(large) {
+    margin-top: $grid * 3;
+  }
+}
