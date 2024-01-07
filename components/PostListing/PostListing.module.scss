@@ -1,7 +1,45 @@
-.container {
+.postContainer {
   margin-top: $grid * 2;
 
   @include media-query(large) {
     margin-top: $grid * 3;
   }
+}
+
+.container {
+  margin-top: $grid;
+
+  @include media-query(large) {
+    margin-top: $grid;
+  }
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: $grid;
+  margin-top: $grid;
+  flex-wrap: wrap;
+}
+
+.tagFilter {
+  @include focus-outline();
+  display: flex;
+  align-items: baseline;
+  gap: $grid * 0.5;
+
+  &__checkbox {
+    @include focus-outline();
+    width: 16px;
+    height: 16px;
+  }
+
+  &__label {
+    text-decoration: underline;
+    text-wrap: nowrap;
+  }
+}
+
+.tagFilterContainer {
+  margin: 0;
 }

@@ -114,19 +114,20 @@
   position: relative;
   display: inline;
   border-radius: $border-radius;
-
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
   text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 3px;
   text-decoration-skip-ink: none;
   text-decoration-color: var(--color--underline);
-
   background-position: 0 -100%;
 
-  transition: color $transition;
+  @include media-query(medium) {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
 
   &:hover {
-    color: var(--color--underline-green);
+    text-decoration-thickness: 5px;
   }
 }
 

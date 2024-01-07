@@ -7,6 +7,10 @@
     padding-bottom: $grid * 2;
     margin-bottom: $grid * 2;
   }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .heading {
@@ -30,7 +34,7 @@
   margin-bottom: 0;
 }
 
-.metadata {
+.published {
   @include font-size(s);
   margin-bottom: 0;
 }
@@ -38,4 +42,33 @@
 .description {
   @include font-size(s);
   margin: 0;
+}
+
+.tagContainer {
+  @include font-size(xs);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tag {
+  @include font-size(xs);
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: var(--color--disabled-green);
+  color: var(--color--primary);
+  border-radius: $border-radius;
+}
+
+.duration {
+  @include font-size(xs);
+  display: inline-block;
+}
+
+.metadata {
+  display: flex;
+  align-items: baseline;
+  gap: $grid;
 }

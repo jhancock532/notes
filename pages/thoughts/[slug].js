@@ -67,6 +67,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
+  // N.B. I've moved the reference to `fs` out of the utils directory and into this page directly. This prevents random errors with Next.js trying to load fs on server vs client.
   const THOUGHTS_PATH = path.join(process.cwd(), 'writing/thoughts');
 
   const thoughtsFilePaths = fs

@@ -6,4 +6,8 @@
   @include media-query(medium) {
     padding: $grid * 2;
   }
+
+  @include media-query(large) {
+    padding: $grid * 4 $grid * 2;
+  }
 }
