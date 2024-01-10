@@ -10,8 +10,8 @@ export default function Index() {
       <h1>Notes</h1>
       <p>Some short blog posts about tech, art and literature.</p>
       <p>
-        View all <Link href="/thoughts">thoughts</Link>. Tech and reviews coming
-        soon!
+        View all <Link href="/thoughts">thoughts</Link>, or check out the{' '}
+        <Link href="/coding">coding</Link> blog posts.
       </p>
     </Layout>
   );

@@ -9,3 +9,5 @@ tags: ['writing']
 Having too much high quality information and ideas within easy reach and dynamically linking to other bits can be disadvantageous. A book prevents you from taking the jump into something else entirely because you have to get your phone out and google the link yourself, so you read on without too much further distraction. A blog with a hundred links is a hundred little distractions, each linking to a hundred further distractions, letting you read on forever...
 
 We often don't need scale to express interesting ideas, so cut where necessary, and skim only the cream off the top of the work.
+
+There are so many blogs and ideas out there! (If you'd like to be overloaded by examples, [click here](https://jvns.ca/blogroll/)) So much content to read and consider! I would rather not add too much noise to this mess, and take extra time to refine my own writing, removing parts that are not as polished or as interesting.
