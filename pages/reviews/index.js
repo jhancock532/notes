@@ -3,29 +3,32 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import path from 'path';
 import Layout from '/components/Layout';
-import PostListing from '/components/PostListing';
 import Hero from '/components/Hero';
+import PostListing from '/components/PostListing';
 
-export default function Coding({ posts }) {
+export default function Reviews({ posts }) {
   return (
     <Layout>
-      <Hero title="Coding" description="Tutorials for web development." />
+      <Hero
+        title="Reviews"
+        description="No posts have been added here yet, but I admire your dedication and perseverance in exploring all possible avenues."
+      />
 
-      <PostListing posts={posts} type="coding" />
+      <PostListing posts={posts} type="reviews" />
 
-      <Link href="/">🏄 Go back home</Link>
+      <Link href="/">Go back home</Link>
     </Layout>
   );
 }
 
 export function getStaticProps() {
-  const CODING_PATH = path.join(process.cwd(), 'writing/coding');
+  const CODING_PATH = path.join(process.cwd(), 'writing/reviews');
 
-  const CodingFilePaths = fs
+  const ReviewsFilePaths = fs
     .readdirSync(CODING_PATH)
     .filter((path) => /\.mdx?$/.test(path));
 
-  const posts = CodingFilePaths.map((filePath) => {
+  const posts = ReviewsFilePaths.map((filePath) => {
     const source = fs.readFileSync(path.join(CODING_PATH, filePath));
     const { content, data } = matter(source);
 

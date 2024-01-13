@@ -1,0 +1,28 @@
+.wrapper {
+  margin-bottom: $grid * 2;
+
+  @include media-query(medium) {
+    margin-bottom: $grid * 3;
+  }
+
+  @include media-query(large) {
+    margin-bottom: $grid * 4;
+  }
+}
+
+.description {
+  margin: $grid 0;
+
+  @include media-query(medium) {
+    margin: $grid 0;
+  }
+}
+
+.published {
+  font-style: italic;
+  color: var(--color--text-grey);
+}
+
+.children {
+  margin-top: $grid * 2;
+}

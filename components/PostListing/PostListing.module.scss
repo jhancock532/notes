@@ -2,15 +2,15 @@
   margin-top: $grid * 2;
 
   @include media-query(large) {
-    margin-top: $grid * 3;
+    margin-top: $grid * 4;
   }
 }
 
 .container {
-  margin-top: $grid;
+  margin-top: -$grid;
 
   @include media-query(large) {
-    margin-top: $grid;
+    margin-top: -$grid * 3;
   }
 }
 

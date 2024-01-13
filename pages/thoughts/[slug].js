@@ -7,6 +7,7 @@ import Link from 'next/link';
 import path from 'path';
 import CustomLink from '/components/CustomLink';
 import CustomImage from '/components/CustomImage';
+import Hero from '/components/Hero';
 import Layout from '/components/Layout';
 
 // Custom components/renderers to pass to MDX.
@@ -22,15 +23,11 @@ const components = {
 export default function PostPage({ source, frontMatter }) {
   return (
     <Layout>
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-        <p className="published">{frontMatter.published}</p>
-        {frontMatter.description && (
-          <p className="description">
-            <em>{frontMatter.description}</em>
-          </p>
-        )}
-      </div>
+      <Hero
+        title={frontMatter.title}
+        published={frontMatter.published}
+        description={frontMatter.description}
+      />
       <main>
         <MDXRemote {...source} components={components} />
       </main>

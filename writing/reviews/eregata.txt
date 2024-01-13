@@ -1,6 +1,6 @@
 ---
-title: Elias Sime: Eregata እርጋታ - Arnolfini
-description: Not for me
+title: Elias Sime - Eregata እርጋታ - Arnolfini
+description: A slightly depressing exhibition
 published: 2024/01/07
 duration: 2 mins
 ---

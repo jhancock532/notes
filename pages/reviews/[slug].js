@@ -5,15 +5,10 @@ import { serialize } from 'next-mdx-remote/serialize';
 import Head from 'next/head';
 import Link from 'next/link';
 import path from 'path';
-import dynamic from 'next/dynamic';
 import CustomLink from '/components/CustomLink';
 import CustomImage from '/components/CustomImage';
 import Layout from '/components/Layout';
 import Hero from '/components/Hero';
-
-const DemonstrationMap = dynamic(() => import('/components/DemonstrationMap'), {
-  ssr: false,
-});
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -23,7 +18,6 @@ const components = {
   a: CustomLink,
   img: CustomImage,
   Head,
-  DemonstrationMap,
 };
 
 export default function PostPage({ source, frontMatter }) {
@@ -38,17 +32,17 @@ export default function PostPage({ source, frontMatter }) {
         <MDXRemote {...source} components={components} />
       </main>
       <footer>
-        <Link href="/coding">⛹️ Back to coding</Link>
+        <Link href="/reviews">⛹️ Back to reviews</Link>
       </footer>
     </Layout>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
-  const CODING_PATH = path.join(process.cwd(), 'writing/coding');
+  const REVIEWS_PATH = path.join(process.cwd(), 'writing/reviews');
 
-  const codingFilePath = path.join(CODING_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(codingFilePath);
+  const reviewsFilePath = path.join(REVIEWS_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(reviewsFilePath);
 
   const { content, data } = matter(source);
 
@@ -71,13 +65,13 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   // N.B. I've moved the reference to `fs` out of the utils directory and into this page directly. This prevents random errors with Next.js trying to load fs on server vs client.
-  const CODING_PATH = path.join(process.cwd(), 'writing/coding');
+  const REVIEWS_PATH = path.join(process.cwd(), 'writing/reviews');
 
-  const codingFilePaths = fs
-    .readdirSync(CODING_PATH)
+  const reviewsFilePaths = fs
+    .readdirSync(REVIEWS_PATH)
     .filter((path) => /\.mdx?$/.test(path));
 
-  const paths = codingFilePaths
+  const paths = reviewsFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

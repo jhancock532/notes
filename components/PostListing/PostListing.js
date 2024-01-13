@@ -56,30 +56,32 @@ export default function PostListing({ posts, type }) {
 
   return (
     <div className={styles.container}>
-      <details className={styles.tagFilterContainer}>
-        <summary>Filter posts by tag</summary>
-        <div className={styles.tagsContainer}>
-          {Object.keys(tags)
-            .sort()
-            .map((tag, index) => (
-              <div key={index} className={styles.tagFilter}>
-                <input
-                  type="checkbox"
-                  id={`tag-checkbox-${tag}`}
-                  checked={selectedTags.includes(tag)}
-                  onChange={() => handleFilterClicked(tag)}
-                  className={styles.tagFilter__checkbox}
-                />
-                <label
-                  htmlFor={`tag-checkbox-${tag}`}
-                  className={styles.tagFilter__label}
-                >
-                  {`${tag} (${tags[tag]})`}
-                </label>
-              </div>
-            ))}
-        </div>
-      </details>
+      {filteredPosts.length > 0 && (
+        <details className={styles.tagFilterContainer}>
+          <summary>Filter posts by tag</summary>
+          <div className={styles.tagsContainer}>
+            {Object.keys(tags)
+              .sort()
+              .map((tag, index) => (
+                <div key={index} className={styles.tagFilter}>
+                  <input
+                    type="checkbox"
+                    id={`tag-checkbox-${tag}`}
+                    checked={selectedTags.includes(tag)}
+                    onChange={() => handleFilterClicked(tag)}
+                    className={styles.tagFilter__checkbox}
+                  />
+                  <label
+                    htmlFor={`tag-checkbox-${tag}`}
+                    className={styles.tagFilter__label}
+                  >
+                    {`${tag} (${tags[tag]})`}
+                  </label>
+                </div>
+              ))}
+          </div>
+        </details>
+      )}
       <div className={styles.postContainer}>
         {sortPostsByDate(filteredPosts).map((post) => (
           <PostCard key={post.filePath} post={post} type={type} />

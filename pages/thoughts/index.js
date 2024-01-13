@@ -3,13 +3,16 @@ import matter from 'gray-matter';
 import Link from 'next/link';
 import path from 'path';
 import Layout from '/components/Layout';
+import Hero from '/components/Hero';
 import PostListing from '/components/PostListing';
 
 export default function Thoughts({ posts }) {
   return (
     <Layout>
-      <h1>Thoughts</h1>
-      <p>Some short blog posts about tech, art and literature.</p>
+      <Hero
+        title="Thoughts"
+        description="Some short blog posts about tech, art and literature."
+      />
 
       <PostListing posts={posts} type="thoughts" />
 
