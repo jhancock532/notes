@@ -22,6 +22,10 @@ Bonus: demo your new map tiles in action using Leaflet.js.
 - If you choose to host the map on GitHub, anyone else will be able to use it as it is available publicly. Consider using a different hosting solution if you'd like the map to be private / only accessible with authentication.
 - The map will not update with new chartography data unless you re-export it from Mapbox.
 
+### Alternatives
+
+- [TileMill](https://wiki.openstreetmap.org/wiki/TileMill) - ran locally, requires PostgreSQL / Node, doesn't have the Mapbox styling interface
+
 ## Requirements
 
 You'll need a Mapbox account that hasn't reached its free tier API limits, a GitHub account, and a computer that can run Python scripts.
@@ -72,8 +76,54 @@ Note that you can get away with downloading one or two zoom levels less than you
 
 Fork the [template repository](https://github.com/jhancock532/download-map-tiles) and change the initial variables in `get_tiles.py` with the map tile limits you'd like to download.
 
-Follow the `readme.md` instructions for installation, then when you've downloaded your map tiles, commit them to the git repository.
+Follow the `readme.md` instructions for installation and downloading the map tiles. When you've downloaded your map tiles, commit them to the git repository.
+
+Note that this download script only covers basic functionality, downloading tiles in sequence at about three per second. Feel free to create a MR to the template repository if you'd like to suggest a parallel solution or one with more error catching, etc.
 
 Edit the `index.html` file so that the map tile URL points towards your GitHub account, and whatever you've named the repository.
 
+```js
+L.tileLayer(
+  'https://{YOUR_USERNAME_HERE}.github.io/{REPOSITORY_NAME_HERE}/tiles/{z}/{x}/{y}.png',
+  {
+    minZoom: 1,
+    maxNativeZoom: 2,
+    maxZoom: 18,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap | Mapbox</a>',
+  },
+).addTo(map);
+```
+
+This is also a great time to adjust the min and maximum zoom to match that of the tiles you've downloaded. If you'd like the user to be able to zoom in further than what your tiles allow, set the `maxNativeZoom` to your tiles zoom limit, then edit the `maxZoom` to be one or two numbers larger. This way the user can zoom in on your map slightly more to see the last set of tiles closer up.
+
+You can set the bounds of the map (so the user doesn't accidentally scroll into the calm oblivion) as follows:
+
+```js
+const southWest = L.latLng(51.39, -2.417);
+const northEast = L.latLng(51.53, -2.843);
+const bounds = L.latLngBounds(southWest, northEast);
+
+const map = L.map('map', { maxBounds: bounds }).setView(
+  [51.44976, -2.59838], // set initial starting point
+  12, // set initial zoom level
+);
+```
+
 Commit and push the changes to GitHub, and activate GitHub Pages for your repository with the default settings.
+
+Your website will shortly be live at `https://{YOUR_USERNAME_HERE}.github.io/{REPOSITORY_NAME_HERE}/`
+
+Here's an example of a [completed GitHub repository](https://github.com/jhancock532/bristol-green-map/tree/main) and [`index.html` file](https://github.com/jhancock532/bristol-green-map/blob/main/index.html).
+
+And here's [a live demo](https://jhancock532.github.io/bristol-green-map/) of the map I created using Mapbox & Leaflet.
+
+<iframe
+  src="https://jhancock532.github.io/bristol-green-map/"
+  width="100%"
+  height="500px"
+/>
+
+Thank you for reading!
+
+If you have any questions, issues or suggestions, please leave a comment on this site's [GitHub repository](https://github.com/jhancock532/notes/discussions).
