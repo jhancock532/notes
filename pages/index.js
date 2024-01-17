@@ -8,7 +8,7 @@ export default function Index() {
       <Hero title="Homepage">
         <p>
           Hello, welcome to the blog! I'm James, a web developer and net artist.
-          This site is a space to write and share some ideas.
+          This site is a space to write and share ideas.
         </p>
         <p>
           If you're interested in web dev explorations, try{' '}

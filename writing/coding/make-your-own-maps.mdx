@@ -24,7 +24,8 @@ Bonus: demo your new map tiles in action using Leaflet.js.
 
 ### Alternatives
 
-- [TileMill](https://wiki.openstreetmap.org/wiki/TileMill) - ran locally, requires PostgreSQL / Node, doesn't have the Mapbox styling interface
+- [TileMill](https://wiki.openstreetmap.org/wiki/TileMill) - ran locally, requires PostgreSQL / Node, doesn't have the Mapbox styling interface. I've not investigated this one yet as it looks a fair bit older.
+- [QGIS](https://qgis.org/en/site/) - you can import MapBox maps into this software, then use QTiles to export them as tiles again. However, the image quality is reduced and random tiles will have a single pixel white line drawn vertically through them. There's not a noticeable improvement in tile download speed, and the map typography doesn't scale well (seems twice as small as it should be). QGIS + QTiles might work better with map styles not imported from Mapbox, however I've not yet tested to confirm this.
 
 ## Requirements
 

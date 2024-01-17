@@ -10,6 +10,7 @@ import CustomLink from '/components/CustomLink';
 import CustomImage from '/components/CustomImage';
 import Layout from '/components/Layout';
 import Hero from '/components/Hero';
+import rehypeHighlight from 'rehype-highlight';
 
 const DemonstrationMap = dynamic(() => import('/components/DemonstrationMap'), {
   ssr: false,
@@ -56,7 +57,7 @@ export const getStaticProps = async ({ params }) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [rehypeHighlight],
     },
     scope: data,
   });

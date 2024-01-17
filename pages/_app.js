@@ -1,4 +1,5 @@
 import '../styles/globals.scss';
+import '/styles/monokai-sublime.css';
 import { Rubik } from 'next/font/google';
 
 export const rubik = Rubik({
