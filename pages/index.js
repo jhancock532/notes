@@ -8,15 +8,14 @@ export default function Index() {
       <Hero title="Homepage">
         <p>
           Hello, welcome to the blog! I'm James, a web developer and net artist.
-          This site is a space to write and share ideas.
         </p>
         <p>
           If you're interested in web dev explorations, try{' '}
           <Link href="/coding">/coding</Link>. For musings on the impending AI
           apocalypse, and how that will change your relationship with instant
           ramen noodles, try <Link href="/thoughts">/thoughts</Link>. As a last
-          resort, you could also go to <Link href="/reviews">/reviews</Link>,
-          however I've not added anything there yet.
+          resort, you could also go to <Link href="/reviews">/reviews</Link> and
+          read some opinions on art exhibitions.
         </p>
         <p>Thank you for visiting.</p>
       </Hero>

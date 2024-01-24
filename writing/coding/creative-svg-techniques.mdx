@@ -1,0 +1,230 @@
+---
+title: Creative use of SVGs in web development
+description: A collection of ideas, methods and tools.
+published: 2024/01/18
+duration: 20 mins
+tags: ['svg', 'creative']
+---
+
+This page takes examples from the [Awesome SVG repository](https://github.com/willianjusten/awesome-svg) and displays them visually so you can be inspired for your next project. I've also added some caveats for using the effects where appropriate.
+
+## SVG paths
+
+### Draw a line with stroke-dash-offset
+
+A CSS only technique, demo by [Michael Gilbertson](https://codepen.io/mggwxyz/pen/dVKPZV).
+
+<iframe
+  height="500"
+  width="100%"
+  scrolling="no"
+  title="DC Metro Lines Map (Animated SVG Path)"
+  src="https://codepen.io/mggwxyz/embed/dVKPZV?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+A common technique that uses SVG's powerful `stroke-dash` functionality. You can make a stroke dash the same size as the whole line itself, then animate where the stroke begins on the line, drawing or erasing the line.
+
+### Draw a line with basic JavaScript
+
+A JavaScript technique. Demo by [James Hancock](https://codepen.io/jhancock532/pen/xxzqVbK).
+
+<iframe
+  height="350"
+  width="100%"
+  scrolling="no"
+  title="SVG Arrow Animation"
+  src="https://codepen.io/jhancock532/embed/xxzqVbK?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+Use the SVG line drawing API directly to show line progression.
+
+### Reveal an object using a clipPath with `<animate attributeName="d">`.
+
+Demo by [Heather Buchel](https://codepen.io/hbuchel/pen/YzYMgd?editors=0100).
+
+<iframe
+  height="550"
+  width="100%"
+  scrolling="no"
+  title="Loading Animation with Morphing SVG!"
+  src="https://codepen.io/hbuchel/embed/YzYMgd?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+No JS, little CSS required. You could apply this clip path to DOM elements outside of the SVG [via a CSS id reference](https://codepen.io/jhancock532/pen/RwLwwNx?editors=0100). Configuring the path animation to be exactly how you like it will take either creative tools or some careful planning. Doesn't seem easy to activate on hover either, some eldritch combination of a JS event & recreating the SVG node might do it?
+
+### Create a wobbly [TextPath](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/textPath)
+
+A demo using the above path animation technique, applied instead to a `<textPath>`. By [James Hancock](https://codepen.io/jhancock532/pen/PoLmzoN?editors=1000).
+
+<iframe
+  height="300"
+  width="100%"
+  scrolling="no"
+  title="Link + Text Path Wiggle"
+  src="https://codepen.io/jhancock532/embed/PoLmzoN?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+## SVG filters
+
+Filters create incredibly powerful visual effects, with the caveat that they can display and perform differently across browsers when you experiment with more complex features. Layering several SVG filters will often have a significant impact to the performance of your browser if you attempt to animate the result. From testing on an M1 Macbook, Chrome can render layered SVG filters with little power, but Safari and Firefox use 10 to 20 times more energy.
+
+- [A handy user interface to experiment with combining filters](https://yoksel.github.io/svg-filters/#/) ([and one just for color effects](https://yoksel.github.io/svg-gradient-map/#/)).
+- [A blog with a demonstration of all possible filter effects in action](https://blog.logrocket.com/complete-guide-using-css-filters-svgs/)
+
+### Animated depth of field effect
+
+Demo by [Vaughan Curd](https://codepen.io/vcurd/pen/DoNymG?editors=0010).
+
+<iframe
+  height="600"
+  width="100%"
+  scrolling="no"
+  title="Depth of field effect with SVG filters"
+  src="https://codepen.io/vcurd/embed/DoNymG?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+Layering blur filters, revealing then hiding different parts of a scene on hover. Can be achieved without SVG via CSS `filter: blur(1px);` rules, but you could use other SVG filters here instead.
+
+### Animated filter effects
+
+- Animate your filter values to create a [glitch effect](https://codepen.io/lbebber/details/qEjRYd/)
+- Or [a digital disruption noise effect](https://aaadaaam.com/?utm_source=ownyourweb&utm_medium=email&utm_campaign=issue-07)
+- Or [a smooth animated water background effect](https://codepen.io/oscar-jite/pen/XWZgYBP)
+
+- doesn't run well on Safari at all (graphical glitches)
+- horrible performance on Firefox when used at full screen, really intensive power usage
+- could make for a nice one-off text wobble effect? Test on Safari!
+- doesn't use as much CPU when run in a smaller effect area
+
+Note that you could animate dynamic lighting using an SVG as well (point light and spotlight variations)
+
+SVG clip text - https://codepen.io/jhancock532/pen/bGRPWPK?editors=1000
+
+## Other SVG effects
+
+### Use generative design to create a unique background
+
+Demo [by Alex Trost](https://codepen.io/a-trost/pen/rNGPxaJ).
+
+<iframe
+  height="500"
+  width="100%"
+  scrolling="no"
+  title="Generative Grid"
+  src="https://codepen.io/a-trost/embed/rNGPxaJ?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+Alex has created a full tutorial for this effect on [frontend.horse](https://frontend.horse/articles/generative-grids/).
+
+### Overlay a mask onto your SVG to add texture
+
+Demo [by Tom Miller](https://codepen.io/creativeocean/pen/abLGMwv?editors=0010)
+
+<iframe
+  height="600"
+  width="100%"
+  scrolling="no"
+  title="Silkscreen Squiggles"
+  src="https://codepen.io/creativeocean/embed/abLGMwv?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+Using JavaScript to build up a grid of SVG shapes. Alex Trost has created a breakdown of this effect on [frontend.horse](https://frontend.horse/articles/painting-svg-paths-with-masks/).
+
+### Animate the SVG viewbox to move over an image, zoom in and out.
+
+Demo [by David Bachmann Johannesson](https://codepen.io/dbj/pen/RWmQNJ)
+
+<iframe
+  height="400"
+  width="100%"
+  scrolling="no"
+  title="Animating the viewbox"
+  src="https://codepen.io/dbj/embed/RWmQNJ?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+### Using `preserveAspectRatio="xMidYMid slice"` and simple animations for a responsive background
+
+Demo [by Ksenia Kondrashova](https://codepen.io/ksenia-k/pen/jXbWaJ?editors=1000)
+
+<iframe
+  height="400"
+  width="100%"
+  scrolling="no"
+  title="2kb total size SVG animation"
+  src="https://codepen.io/ksenia-k/embed/jXbWaJ?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+### Tools
+
+- [SVG path editor](https://yqnn.github.io/svg-path-editor/): Free access, allows manual editing of the path string & also drag and drop of the SVG path points.
+
+### Other inspiration
+
+- [https://a.singlediv.com/](https://a.singlediv.com/) by [Lynn Fisher](https://lynnandtonic.com/). A lot of what's created on this site doesn't use SVG directly, rather `background-image`. However, there are a lot of cool creative implementations using not a lot of code.
+
+If you're wondering how SVG can be used responsively, check out this clever board game journey implementation: https://react.gg/
+
+An SVG is basically just a bunch of divs with transforms applied. Animate their appearance using GSAP and scroll.
+
+<iframe
+  height="500"
+  width="100%"
+  scrolling="no"
+  title="Scrolling rainbow - GSAP ScrollTrigger &amp; ScrollSmoother"
+  src="https://codepen.io/supah/embed/MWroVZG?default-tab=result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+></iframe>
+
+## AI generated SVG images
+
+For best results, prompt your image generation with SVG, woodcut, graphic design, etc.
+
+For black and white SVG cutouts:
+
+- "A linocut style black and white woodcut image of a medium size golden retriever dog sleeping in a plain cosy dog bed against a white background, no color and large blocky woodcut strokes" (DALLE 3 handled this quite well)
+- Consider using Stable Diffusion 1.5 and the print graphic Lora locally - https://civitai.com/models/34903/print-graphic
+- Edit the photo with a free photo editor to get rid of any generation mistakes.
+- [Use Adobe's SVG convertor to make it an SVG](https://www.adobe.com/express/feature/image/convert/svg).
+- [Use the Neo color editor to adjust the colors](https://neosvg.com/tools/svg-color-editor) if you are particular about the SVG matching a color scheme.
+- Use the SVG OMG optimizer or https://vecta.io/nano to polish the result. Or both!
+
+![A woodcut illustration of a dog snoozing in a basket.](/images/svg/sleeping-dog.svg)

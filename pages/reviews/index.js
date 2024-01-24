@@ -9,10 +9,7 @@ import PostListing from '/components/PostListing';
 export default function Reviews({ posts }) {
   return (
     <Layout>
-      <Hero
-        title="Reviews"
-        description="No posts have been added here yet, but I admire your dedication and perseverance in exploring all possible avenues."
-      />
+      <Hero title="Reviews" description="Art exhibitions, etc." />
 
       <PostListing posts={posts} type="reviews" />
 

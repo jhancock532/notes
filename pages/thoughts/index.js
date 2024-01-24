@@ -11,7 +11,7 @@ export default function Thoughts({ posts }) {
     <Layout>
       <Hero
         title="Thoughts"
-        description="Some short blog posts about tech, art and literature."
+        description="Some short blog posts about AI and writing."
       />
 
       <PostListing posts={posts} type="thoughts" />
