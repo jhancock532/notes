@@ -2,24 +2,24 @@
 
 :root {
   // Base colors
-  // https://coolors.co/palette/fffae8-d04200-363635-465e4d-558564-1c221d
-  // https://abc.useallfive.com/?colors[]=F7FFF8,1A6201,8BEBA8,65C783,1C221D,121613
-  --color--white: #f7fff8; //#edffef;
-  --color--dark-green: #1a6201;
-  --color--underline-green: #65c783;
-  --color--highlight-green: #8beba8;
-  --color--disabled-green: #c4f0c4;
-  --color--dark-grey: #363635;
-  --color--green: #558564;
-  --color--midnight: #1c221d;
-  --color--black: #121613;
+  // https://coolors.co/palette/fff7f7-620101-363535-855555-221c1c-161212
+  // https://abc.useallfive.com/?colors[]=FFF7F7,620101,C76565,EB8B8B,F0C4C4,363535,855555,221C1C,161212
+  --color--white: #fff7f7;
+  --color--dark-red: #620101;
+  --color--underline-red: #c76565;
+  --color--highlight-red: #eb8b8b;
+  --color--disabled-red: #f0c4c4;
+  --color--dark-grey: #363535;
+  --color--red: #855555;
+  --color--midnight: #221c1c;
+  --color--black: #161212;
 
   // Theme colors
-  --color--primary: var(--color--dark-green);
+  --color--primary: var(--color--dark-red);
   --color--text: var(--color--midnight);
   --color--text-grey: var(--color--dark-grey);
   --color--link: var(--color--primary);
-  --color--underline: var(--color--underline-green);
+  --color--underline: var(--color--underline-red);
   --color--hover: var(--color--black);
   --color--background: var(--color--white);
 
@@ -126,7 +126,7 @@ html,
 // Default sizes
 h1 {
   @include font-size(xl);
-  font-weight: $weight--bold;
+  font-weight: $weight--semibold;
   margin: 0 0 math.div($gutter, 2);
   color: var(--color--text);
   line-height: 1.1;

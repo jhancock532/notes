@@ -1,0 +1,29 @@
+---
+title: Power consumption of creative web assets
+description: Findings on how much power is consumed by different web assets on a MacOS device.
+published: 2024/08/14
+duration: 10 mins
+tags: ['sustainability']
+---
+
+I ran an experiment to see how different creative assets for web development consume power on an Apple laptop. The following chart shows the mW power consumption for these assets, used on a webpage in isolation, measured over the course of 10 seconds. I ran the test three times then took the average of the results (there was little to no variation in measured values between runs).
+
+![A bar chart demonstrating that Firefox and Chrome consume different levels of power consumption for different creative assets.](/images/investigate-power-consumption/ff-chrome-creative-assets.svg)
+
+Bizarrely, the YouTube embed for Chrome consumes much more power than than of Firefox, even more than an animated WebGL Three.js scene. I tested the YouTube embed power consumption across further browsers, and confirmed that this is specific to Chrome.
+
+![Chrome consumed about ten times as much power as any of the other browsers.](/images/investigate-power-consumption/youtube-embed-energy-usage.svg)
+
+I don't know why Chrome acts this way around the YouTube embed. I have noticed that when running tests against multiple YouTube embeds using Playwright, Chrome will cause other embeds on the page to vanish when they are not within the immediate viewport, which other browsers don't do. There is some custom code in Chrome that handles these iFrames differently.
+
+## Methodology
+
+If you'd like to test power consumption of a process on your own MacOS or Linux device, you can use the following guide.
+
+Close all other applications apart from your chosen browser and a terminal instance. Make sure you are testing using an incognito window that has no active extensions.
+
+Load the website to be tested, then run the `powermetrics` command line tool in the terminal with the following command:
+
+`sudo powermetrics –samplers tasks –show-process-coalition –show-process-gpu -n 1 -i 10000`
+
+Then, take the average of three runs of the CPU and GPU energy consumption. Your results should be quite consistent across the three runs, otherwise it may be that a different process has affected the power consumption.

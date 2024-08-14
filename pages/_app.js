@@ -1,8 +1,8 @@
 import '../styles/globals.scss';
 import '/styles/monokai-sublime.css';
-import { Rubik } from 'next/font/google';
+import { Source_Serif_4 } from 'next/font/google';
 
-export const rubik = Rubik({
+export const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
   display: 'swap',
   adjustFontFallback: false,
@@ -10,7 +10,7 @@ export const rubik = Rubik({
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className={rubik.className}>
+    <div className={sourceSerif.className}>
       <Component {...pageProps} />
     </div>
   );

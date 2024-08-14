@@ -1,5 +1,5 @@
 .container {
-  border-bottom: 1px solid var(--color--highlight-green);
+  border-bottom: 1px solid var(--color--highlight-red);
   padding-bottom: $grid;
   margin-bottom: $grid;
 
@@ -57,7 +57,7 @@
   @include font-size(xs);
   display: inline-block;
   padding: 2px 8px;
-  background-color: var(--color--disabled-green);
+  background-color: var(--color--disabled-red);
   color: var(--color--primary);
   border-radius: $border-radius;
 }

@@ -101,7 +101,7 @@
 @mixin focus-outline-inverse() {
   &:focus-visible {
     border-radius: $border-radius;
-    outline: 3px solid var(--color--highlight-green);
+    outline: 3px solid var(--color--highlight-red);
     outline-offset: 3px;
   }
 }
