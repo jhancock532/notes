@@ -8,7 +8,7 @@ export default function Header() {
         <ul className={styles.navList}>
           <li>
             <Link href="/" className={styles.homeLink}>
-              <strong>James's Notes</strong>
+              <strong>Notes</strong>
             </Link>
           </li>
           <li>
@@ -19,9 +19,6 @@ export default function Header() {
           </li>
           <li>
             <Link href="/thoughts">Thoughts</Link>
-          </li>
-          <li>
-            <Link href="/reviews">Reviews</Link>
           </li>
         </ul>
       </nav>
